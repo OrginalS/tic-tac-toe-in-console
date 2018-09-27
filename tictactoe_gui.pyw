@@ -5,6 +5,8 @@ move = 1
 one = two = three = four = five = six = seven = eight = nine = ""
 x_wins = 0
 o_wins = 0
+score = StringVar()
+score.set("X "+str(x_wins)+" : "+str(o_wins)+" O")
 
 
 def reset_game():
@@ -20,10 +22,12 @@ def game_logic():
     global x_wins, o_wins
     if one == "x" and two == "x" and three == "x" or four == "x" and five == "x" and six == "x" or seven == "x" and eight == "x" and nine == "x" or one == "x" and four == "x" and seven == "x" or two == "x" and five == "x" and eight == "x" or three =="x" and six == "x" and nine == "x" or one =="x" and five == "x" and nine == "x" or three == "x" and five == "x" and seven == "x":
         x_wins += 1
+        score.set("X " + str(x_wins) + " : " + str(o_wins) + " O")
         messagebox.showinfo("tic-tac-toe", "X wins")
         one = two = three = four = five = six = seven = eight = nine = "end"
     elif one == "o" and two == "o" and three == "o" or four == "o" and five == "o" and six == "o" or seven == "o" and eight == "o" and nine == "o" or one == "o" and four == "o" and seven == "o" or two == "o" and five == "o" and eight == "o" or three =="o" and six == "o" and nine == "o" or one =="o" and five == "o" and nine == "o" or three == "o" and five == "o" and seven == "o":
         o_wins += 1
+        score.set("X " + str(x_wins) + " : " + str(o_wins) + " O")
         messagebox.showinfo("tic-tac-toe", "O wins")
         one = two = three = four = five = six = seven = eight = nine = "end"
     elif move >=10:
@@ -138,7 +142,10 @@ canvas8.bind("<Button-1>", lambda self: put(self, 8, eight))
 canvas9 = Canvas(root, width=200, height=200, highlightthickness=1, highlightbackground="black")
 canvas9.grid(row=2, column=2)
 canvas9.bind("<Button-1>", lambda self: put(self, 9, nine))
-reset = Button(root, text="Reset game!",command=reset_game)
+reset = Button(root, text="Reset game!", command=reset_game)
 reset.grid(row=0, column=4)
+scorelabel = Label(root, textvariable=score)
+scorelabel.config(font=("Courier", 30))
+scorelabel.grid(row=1, column=4)
 
 root.mainloop()
