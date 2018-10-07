@@ -23,15 +23,17 @@ def game_logic():
     if one == "x" and two == "x" and three == "x" or four == "x" and five == "x" and six == "x" or seven == "x" and eight == "x" and nine == "x" or one == "x" and four == "x" and seven == "x" or two == "x" and five == "x" and eight == "x" or three =="x" and six == "x" and nine == "x" or one =="x" and five == "x" and nine == "x" or three == "x" and five == "x" and seven == "x":
         x_wins += 1
         score.set("X " + str(x_wins) + " : " + str(o_wins) + " O")
-        messagebox.showinfo("tic-tac-toe", "X wins")
+        messagebox.showinfo("tic-tac-toe", "X wins!")
         one = two = three = four = five = six = seven = eight = nine = "end"
     elif one == "o" and two == "o" and three == "o" or four == "o" and five == "o" and six == "o" or seven == "o" and eight == "o" and nine == "o" or one == "o" and four == "o" and seven == "o" or two == "o" and five == "o" and eight == "o" or three =="o" and six == "o" and nine == "o" or one =="o" and five == "o" and nine == "o" or three == "o" and five == "o" and seven == "o":
         o_wins += 1
         score.set("X " + str(x_wins) + " : " + str(o_wins) + " O")
-        messagebox.showinfo("tic-tac-toe", "O wins")
+        messagebox.showinfo("tic-tac-toe", "O wins!")
         one = two = three = four = five = six = seven = eight = nine = "end"
     elif move >=10:
-        print("draw")
+        score.set("X " + str(x_wins) + " : " + str(o_wins) + " O")
+        messagebox.showinfo("tic-tac-toe", "Draw!")
+        one = two = three = four = five = six = seven = eight = nine = "end"
 
 
 def put(event, pos, poscheck):
