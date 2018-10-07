@@ -1,1 +1,1 @@
-# tictactoe in console
+# tic-tac-toe in console
